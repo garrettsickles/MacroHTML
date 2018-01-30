@@ -1,5 +1,5 @@
-#ifndef _CTEMPL_PREPROCESS_
-#define _CTEMPL_PREPROCESS_
+#ifndef _MACROHTML_H
+#define _MACROHTML_H
 // ============================================================================
 // Meta Macros (Macros used for information about macros)
 // ============================================================================
@@ -92,6 +92,12 @@
     )
 #define COMMENT(...)\
     CLOSE_COMMENT(\
+        __VA_ARGS__\
+    )
+#define HTML(content, ...)\
+    CLOSE_SCOPE(\
+        html,\
+        content\
         __VA_ARGS__\
     )
 #define HEAD(content, ...)\
