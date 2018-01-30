@@ -1,6 +1,14 @@
 # MacroHTML
 Generate HTML using the C Preprocessor
 
+## Usage
+``` bash
+# Specify which source files
+./MacroHTML.sh example.html.h
+
+# All source file in working directory
+./MacroHTML.h
+```
 ## Basic
 Using the file `example.html.h`
 ``` c
