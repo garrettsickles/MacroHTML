@@ -101,14 +101,24 @@
 // Pass in a string literal 
 #define TEXT(...)\
     __VA_ARGS__
+// Pass in a single literal
+#define META_PASTE(x) x
+#define META_CONCAT(x,y) x ## y
+#define META_HASH #
+// Add an Apostrophe
+#define ADD_APOS(x)\
+    META_PASTE(x)META_PASTE(&)META_PASTE(META_HASH)META_PASTE(39;)
+// Add a Comma
+#define ADD_COMMA(x)\
+    META_PASTE(x)META_PASTE(&)META_PASTE(META_HASH)META_PASTE(44;)
 // ============================================================================
 // HTML - Generic
 // ============================================================================
-#define DOCTYPE(content)\
+#define DOCTYPE(content, ...)\
     CLOSE_NONE(\
         !DOCTYPE\
         content\
-    )
+    )__VA_ARGS__
 #define COMMENT(...)\
     CLOSE_COMMENT(\
         __VA_ARGS__\
@@ -125,10 +135,9 @@
         content,\
         __VA_ARGS__\
     )
-#define META(content, ...)\
-    CLOSE_SCOPE(\
+#define META(...)\
+    CLOSE_NONE(\
         meta,\
-        content,\
         __VA_ARGS__\
     )
 #define BASE(content, ...)\
@@ -149,7 +158,7 @@
         content,\
         __VA_ARGS__\
     )
-#define PARAGRAPH(content, ...)\
+#define P(content, ...)\
     CLOSE_SCOPE(\
         p,\
         content,\
@@ -194,11 +203,11 @@
 #define BR(...)\
     CLOSE_NONE(\
         br\
-    )
+    )__VA_ARGS__
 #define HR(...)\
     CLOSE_NONE(\
         hr\
-    )
+    )__VA_ARGS__
 // ============================================================================
 // HTML - Formatting
 // ============================================================================
@@ -517,10 +526,9 @@
 // ============================================================================
 // HTML - Images
 // ============================================================================
-#define IMG(content, ...)\
-    CLOSE_SCOPE(\
+#define IMG(...)\
+    CLOSE_NONE(\
         img,\
-        content,\
         __VA_ARGS__\
     )
 #define MAP(content, ...)\
@@ -854,6 +862,7 @@
     CLOSE_NONE(\
         link,\
         ATTRIBUTE(href,path)\
+        ATTRIBUTE(rel,"stylesheet")\
     )
 
 #endif

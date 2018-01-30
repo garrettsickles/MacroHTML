@@ -11,7 +11,7 @@ done
 		#gcc -E $var | sed '/^#/ d' | sed '/^\s*$/d' | tr -d '\n' > test.html
 
 # If there are no arguements, use templates (*.html.h) in current directory
-if [ "$#" -ne 1 ]; then
+if [ "$#" -eq 1 ]; then
 	echo "Looking for sources..."
 
 	# for each file in the directory
