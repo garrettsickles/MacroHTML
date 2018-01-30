@@ -7,7 +7,7 @@ Generate HTML using the C Preprocessor
 ./MacroHTML.sh example.html.h
 
 # All source file in working directory
-./MacroHTML.h
+./MacroHTML.sh
 ```
 ## Basic
 Using the file `example.html.h`
