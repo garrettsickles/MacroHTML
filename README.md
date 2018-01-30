@@ -73,8 +73,9 @@ HTML(
 )
 ```
 
-This produces...
-```
+This produces
+
+``` html
 <!DOCTYPE html>
 <html lang="en-US">
     <head>
