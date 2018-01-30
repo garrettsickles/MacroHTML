@@ -1,7 +1,7 @@
 # MacroHTML
 Generate HTML using the C Preprocessor
 
-## Introduction
+## Basic
 Using the file `example.html.h`
 ``` c
 #include "MacroHTML.h"
