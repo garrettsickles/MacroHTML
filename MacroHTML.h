@@ -74,21 +74,40 @@
         __VA_ARGS__\
     )
 //
-// HTML Arguement expansion
-//   Pass in a value and stringify 
+// TAG_OPEN
+//    Generic Tag Opening
+#define TAG_OPEN(tag, ...)\
+    META_IFARGS(\
+        <tag __VA_ARGS__>,\
+        <tag>,\
+        __VA_ARGS__\
+    )
+//
+// TAG_OPEN
+//    Generic Tag Opening
+#define TAG_CLOSE(tag, ...)\
+    META_IFARGS(\
+        </tag __VA_ARGS__>,\
+        </tag>,\
+        __VA_ARGS__\
+    )
+//
+// Pass in a value and stringify 
 #define ATTRIBUTE_STR(name,value)\
     name=#value
-//
-//    Pass in a string literal 
+// Pass in a string literal 
 #define ATTRIBUTE(name,value)\
     name=value
+// Pass in a string literal 
+#define TEXT(...)\
+    __VA_ARGS__
 // ============================================================================
 // HTML - Generic
 // ============================================================================
-#define DOCTYPE(content, ...)\
+#define DOCTYPE(content)\
     CLOSE_NONE(\
-        !DOCTYPE,\
-        __VA_ARGS__\
+        !DOCTYPE\
+        content\
     )
 #define COMMENT(...)\
     CLOSE_COMMENT(\
@@ -97,13 +116,13 @@
 #define HTML(content, ...)\
     CLOSE_SCOPE(\
         html,\
-        content\
+        content,\
         __VA_ARGS__\
     )
 #define HEAD(content, ...)\
     CLOSE_SCOPE(\
         head,\
-        content\
+        content,\
         __VA_ARGS__\
     )
 #define META(content, ...)\
@@ -121,7 +140,7 @@
 #define TITLE(content, ...)\
     CLOSE_SCOPE(\
         title,\
-        content\
+        content,\
         __VA_ARGS__\
     )
 #define BODY(content, ...)\
