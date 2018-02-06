@@ -1,5 +1,7 @@
 # MacroHTML
-Generate HTML using the C Preprocessor
+Generate HTML using the C Preprocessor.
+
+I thought this project would be a fun exploitation of the C preprocessor.
 
 ### [Here is an larger example at my personal Github Page](https://github.com/garrettsickles/garrettsickles.github.io)
 ## Usage
