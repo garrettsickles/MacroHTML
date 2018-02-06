@@ -13,7 +13,6 @@ I thought this project would be a fun exploitation of the C preprocessor.
 ./MacroHTML.sh
 ```
 ## Basic
-Using the file `example.html.h`
 ``` c
 #include "MacroHTML.h"
 
